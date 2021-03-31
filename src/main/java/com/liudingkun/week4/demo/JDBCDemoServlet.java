@@ -16,7 +16,7 @@ import java.sql.SQLException;
                 @WebInitParam(name="url",value="jdbc:sqlserver://localhost;databaseName=userdb"),
                 @WebInitParam(name="username",value="sa"),
                 @WebInitParam(name="password",value="admin123456789"),
-        },loadOnStartup = 1
+        }//,loadOnStartup = 1
 )
 public class JDBCDemoServlet extends HttpServlet {
     Connection Con=null;
@@ -44,7 +44,7 @@ public class JDBCDemoServlet extends HttpServlet {
         try {
             ResultSet rs=Con.createStatement().executeQuery(sql);
             while (rs.next()){
-
+                System.out.println(rs);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
