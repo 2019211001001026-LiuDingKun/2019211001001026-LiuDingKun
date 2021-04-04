@@ -6,11 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@include file="header.jsp"%>
 <form method="post" action="/register">
     userName:<input type="text" name="username"><br/>
     password:<input type="text" name="password"><br/>
@@ -19,5 +15,4 @@
     Date of birth:<input type="text" name="birthDate"><br/>
     <input type="submit" value="Register"/>
 </form>
-</body>
-</html>
+<%@include file="footer.jsp"%>
