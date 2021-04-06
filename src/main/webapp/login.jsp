@@ -12,6 +12,6 @@
 <form method="post" action="login">
     userName:<input type="text" name="username"><br/>
     password:<input type="text" name="password"><br/>
-    <input type="submit" value="Login"/>b mfk7.
+    <input type="submit" value="Login"/>
 </form>
 <%@include file="footer.jsp"%>
