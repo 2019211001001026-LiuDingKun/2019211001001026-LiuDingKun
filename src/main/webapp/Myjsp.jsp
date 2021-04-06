@@ -6,10 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
+<%@include file="header.jsp"%>
 <body>
 <a href="index.jsp"> go to Ecjtu </a><!-- method is GET -->
 <form method="post"> <!--what is method when we use form?--><!--its GET why? default is GET, form data is added in the URL ,u can see-->
@@ -18,5 +15,4 @@
     ID:<input type="text" id="id"><br/>
     <input type="submit" value="Send data to server"/>
 </form>
-</body>
-</html>
+<%@include file="footer.jsp"%>
