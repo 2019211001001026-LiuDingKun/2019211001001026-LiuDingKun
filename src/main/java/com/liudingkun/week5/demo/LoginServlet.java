@@ -15,10 +15,11 @@ public class LoginServlet extends HttpServlet {
     Connection Con=null;
     @Override
     public void init() throws ServletException {
-        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        String url = "jdbc:sqlserver://localhost;databaseName=userdb";
-        String username ="sa";
-        String password ="admin123456789";
+        ServletContext servletContext = getServletContext();
+        String driver =  servletContext.getInitParameter("driver");
+        String url =  servletContext.getInitParameter("url");
+        String username =  servletContext.getInitParameter("username");
+        String password =  servletContext.getInitParameter("password");
         try {
             Class.forName(driver);
             Con= DriverManager.getConnection(url,username,password);
@@ -29,44 +30,38 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+doPost(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        boolean a;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        a=login(username,password);
         PrintWriter writer= response.getWriter();
-        if(a=true)
-        {
-            writer.println("Login Success!!!");
-            writer.println("Welcome"+username);
-        }else {
-            writer.println("Username or Password Error!!!");
-        }
-    }
-    public boolean login(String name, String pwd) {
-        boolean flag = false;
         String sql = "SELECT * FROM usertable";
         try {
-            try {
-                init();
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
             ResultSet rs = Con.createStatement().executeQuery(sql);
             while(rs.next()){
-                if(rs.getString("username").equals(name) && rs.getString("password").equals(pwd)){
-                    flag = true;
-                }
+                if(rs.getString("username").equals(username) && rs.getString("password").equals(password)){
+                    request.setAttribute("id",rs.getString("id"));
+                    request.setAttribute("username",rs.getString("username"));
+                    request.setAttribute("password",rs.getString("password"));
+                    request.setAttribute("email",rs.getString("email"));
+                    request.setAttribute("gender",rs.getString("gender"));
+                    request.setAttribute("birthdate",rs.getString("birthdate"));
+                    request.getRequestDispatcher("userInfo.jsp").forward(request,response);
+                        //week5 code
+                        //writer.println("Login Success!!!");
+                        //writer.println("Welcome"+username);
+                    }else {
+                        //writer.println("Username or Password Error!!!");
+                    request.setAttribute("message","Username or Password Error!!!");
+                    request.getRequestDispatcher("login.jsp").forward(request,response);
+                    }
             }
             Con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return flag;
     }
-
 }

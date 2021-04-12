@@ -15,6 +15,14 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.liudingkun.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.liudingkun.week6.demo.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
     <context-param>
         <param-name>driver</param-name>
         <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>

@@ -16,12 +16,12 @@
         <servlet-class>com.liudingkun.week3.demo.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.liudingkun.week5.demo.LoginServlet</servlet-class>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.liudingkun.week6.demo.SearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <context-param>
         <param-name>driver</param-name>
