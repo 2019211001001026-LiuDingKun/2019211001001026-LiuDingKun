@@ -38,10 +38,14 @@ public class UserDao implements IUserDao{
 
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
-        String sql = "update usertable set password=? where id=?";
+        String sql = "update usertable set email=?,gender=?,birthdate=?,username=?,password=? where id=?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1,user.getPassword());
-        ps.setString(2,user.getId());
+        ps.setString(1,user.getEmail());
+        ps.setString(2,user.getGender());
+        ps.setDate(3,user.getBirthdate());
+        ps.setString(4, user.getUsername());
+        ps.setString(5,user.getPassword());
+        ps.setString(6,user.getId());
         int res=ps.executeUpdate();
         return res;
     }
@@ -79,7 +83,7 @@ public class UserDao implements IUserDao{
             user.setId(rs.getString("id"));
             user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
-            user.setPassword(rs.getString("email"));
+            user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
             user.setBirthdate(rs.getDate("birthdate"));
 
