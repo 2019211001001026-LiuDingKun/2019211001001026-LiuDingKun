@@ -9,18 +9,19 @@
 <%@include file="header.jsp"%>
 <h1> User Info</h1>
 <%
-User user=(User) request.getAttribute("user");
+User u=(User) session.getAttribute("user");
 %>
 <table>
     <tr>
-        <td>Username:</td><td><%=user.getUsername()%></td></tr>
+        <td>Username:</td><td><%=u.getUsername()%></td></tr>
     <tr>
-        <td>Password:</td><td><%=user.getPassword()%></td></tr>
+        <td>Password:</td><td><%=u.getPassword()%></td></tr>
     <tr>
-        <td>Email:</td><td><%=user.getEmail()%></td></tr>
+        <td>Email:</td><td><%=u.getEmail()%></td></tr>
     <tr>
-        <td>Gender:</td><td><%=user.getGender()%></td></tr>
+        <td>Gender:</td><td><%=u.getGender()%></td></tr>
     <tr>
-        <td>Birthdate:</td><td><%=user.getBirthdate()%></td></tr>
+        <td>Birthdate:</td><td><%=u.getBirthdate()%></td></tr>
 </table>
-<%@include file="footer.jsp"%>>
+<a href="updateUser">UpDate</a>
+<%@include file="footer.jsp"%>
