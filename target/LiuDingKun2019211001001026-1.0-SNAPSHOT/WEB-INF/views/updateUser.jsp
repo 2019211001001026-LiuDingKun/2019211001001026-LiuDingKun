@@ -12,7 +12,7 @@
 <%@include file="header.jsp"%>
 <h1> User Update</h1>
 <form method="post" action="updateUser">
-    id:<input type="text" name="id" value="<%=u.getId()%>"><br/>
+    id:<input type="hidden" name="id" value="<%=u.getId()%>"><br/>
     userName:<input type="text" name="username" value="<%=u.getUsername()%>"><br/>
     password:<input type="text" name="password" value="<%=u.getPassword()%>"><br/>
     email:<input type="text" name="email" value="<%=u.getEmail()%>"><br/>
