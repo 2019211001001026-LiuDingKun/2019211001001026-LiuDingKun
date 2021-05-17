@@ -53,7 +53,7 @@ public class UserDao implements IUserDao{
     @Override
     public User findById(Connection con, String id) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where id=? ";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, id);
         ResultSet rs=st.executeQuery();
         User user=null;
@@ -73,7 +73,7 @@ public class UserDao implements IUserDao{
     @Override
     public User findByUsernamePassword(Connection con, String username, String password) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where username=? and password=?";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, username);
         st.setString(2, password);
         ResultSet rs=st.executeQuery();
@@ -94,7 +94,7 @@ public class UserDao implements IUserDao{
     @Override
     public List<User> findByUsername(Connection con, String username) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where username=? ";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, username);
         ResultSet rs=st.executeQuery();
         List<User> List=new ArrayList<>();
@@ -116,7 +116,7 @@ public class UserDao implements IUserDao{
     @Override
     public List<User> findByPassword(Connection con, String password) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where password=? ";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, password);
         ResultSet rs=st.executeQuery();
         List<User> List=new ArrayList<>();
@@ -138,7 +138,7 @@ public class UserDao implements IUserDao{
     @Override
     public List<User> findByEmail(Connection con, String email) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where email=? ";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, email);
         ResultSet rs=st.executeQuery();
         User user=null;
@@ -160,7 +160,7 @@ public class UserDao implements IUserDao{
     @Override
     public List<User> findByGender(Connection con, String gender) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where gender=? ";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, gender);
         ResultSet rs=st.executeQuery();
         User user=null;
@@ -182,7 +182,7 @@ public class UserDao implements IUserDao{
     @Override
     public List<User> findByBirthdate(Connection con, Date birthDate) throws SQLException {
         String sql="select id,username,password,email,gender,birthdate from usertable where birthDate=? ";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         st.setDate(1, birthDate);
         ResultSet rs=st.executeQuery();
         User user=null;
@@ -204,7 +204,7 @@ public class UserDao implements IUserDao{
     @Override
     public List<User> findAllUser(Connection con) throws SQLException {
         String sql="select * from usertable";
-        PreparedStatement st=con.prepareCall(sql);
+        PreparedStatement st=con.prepareStatement(sql);
         ResultSet rs=st.executeQuery();
         User user=null;
         List<User> List=new ArrayList<>();

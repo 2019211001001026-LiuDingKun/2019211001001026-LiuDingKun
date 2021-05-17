@@ -45,16 +45,10 @@ public class UpdateUserServlet extends HttpServlet {
         UserDao userDao=new UserDao();
         try {
             PrintWriter out= response.getWriter();
-            int user= userDao.updateUser(Con,u);
-            if (user>0){
-                out.println("UpDate Successful");
-            }else {
-                out.println("UpDate fail");
-            }
+            userDao.updateUser(Con,u);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
+        request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
     }
 }

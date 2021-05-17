@@ -11,7 +11,6 @@ import java.io.IOException;
 public class AdminHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("wjhdj");
         HttpSession session=request.getSession(false);
         if (session !=null&&session.getAttribute("user")!=null){
             User user= (User) session.getAttribute("user");
@@ -27,7 +26,6 @@ public class AdminHomeServlet extends HttpServlet {
             }
 
         }else {
-            System.out.println("wweuhuggr");
             request.setAttribute("message","Please login as admin !!!");
             request.getRequestDispatcher("../WEB-INF/views/login.jsp").forward(request,response);
         }
