@@ -38,7 +38,7 @@
 									<option value="5">BAGS</option>
 									<option value="6">SHOES</option>
 									<option value="7">BOOKS</option>
-									<option value="7">OTHER</option>
+									<option value="8">OTHER</option>
 										
 										<!-- loop_end -->
 										

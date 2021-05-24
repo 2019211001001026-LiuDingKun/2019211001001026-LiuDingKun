@@ -14,12 +14,9 @@ public class AdminHomeServlet extends HttpServlet {
         HttpSession session=request.getSession(false);
         if (session !=null&&session.getAttribute("user")!=null){
             User user= (User) session.getAttribute("user");
-            System.out.println("123456");
             if("admin".equals(user.getUsername())){
-                System.out.println("ldk");
                 request.getRequestDispatcher("../WEB-INF/views/admin/index.jsp").forward(request,response);
             }else {
-                System.out.println("789456");
                 session.invalidate();
                 request.setAttribute("message","Unauthorized Access Admin Module !!!");
                 request.getRequestDispatcher("../WEB-INF/views/login.jsp").forward(request,response);
