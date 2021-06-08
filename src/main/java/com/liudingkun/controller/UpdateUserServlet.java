@@ -46,9 +46,12 @@ public class UpdateUserServlet extends HttpServlet {
         try {
             PrintWriter out= response.getWriter();
             userDao.updateUser(Con,u);
+            HttpSession session= request.getSession();
+            session.setMaxInactiveInterval(60*60);
+            session.setAttribute("user",u);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+        request.getRequestDispatcher("accountDetails").forward(request,response);
     }
 }
