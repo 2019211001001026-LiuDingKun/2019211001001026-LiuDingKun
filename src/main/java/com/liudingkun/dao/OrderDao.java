@@ -40,7 +40,7 @@ public class OrderDao implements IOrderDao {
 			//By default,committed right after it is executed,disable the auto commit mode to enable two or more statements to be grouped into a transaction// begin the transaction:
 			con.setAutoCommit(false);
 			//sql =INSERT INTO userdb.order for mysql
-			String sql="INSERT INTO [dbo].[order](CustomerID,PaymentID,OrderDate,FirstName,LastName,Address1,Address2,city,state,PostalCode,Country,Phone,Notes,OrderTotal) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql="INSERT INTO [dbo].[order](CustomerID,PaymentId,OrderDate,FirstName,LastName,Address1,Address2,city,state,PostalCode,Country,Phone,Notes,OrderTotal) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, order.getCustomerId());
 			st.setInt(2, order.getPaymentId());
@@ -61,7 +61,7 @@ public class OrderDao implements IOrderDao {
 			flag = st.executeUpdate();
 			
 			//get newly inserted OrderId
-				String lastId="SELECT max(orderid) as orderId from [dbo].[order] ";//"SELECT max(orderid) as orderId from userdb.order"; for mysql
+				String lastId="SELECT max(orderId) as orderId from [dbo].[order] ";//"SELECT max(orderid) as orderId from userdb.order"; for mysql
 				ResultSet rs=con.createStatement().executeQuery(lastId);
 				rs.next();
 				int orderId=rs.getInt("orderId");

@@ -1,4 +1,4 @@
-package com.liudingkun.lab1;
+package com.lab1;
 
 public class Person {
     private String name;

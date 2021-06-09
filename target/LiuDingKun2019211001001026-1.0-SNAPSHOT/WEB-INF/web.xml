@@ -54,7 +54,7 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
-    <filter>
+    <!--<filter>
         <filter-name>AuthFilter</filter-name>
         <filter-class>com.liudingkun.filter.AuthFilter</filter-class>
     </filter>
@@ -78,5 +78,14 @@
     <filter-mapping>
         <filter-name>LoggerFilter</filter-name>
         <url-pattern>/hello</url-pattern>
+    </filter-mapping>-->
+    <filter>
+        <filter-name>liudingkunFilter</filter-name>
+        <filter-class>com.lab2.liudingkunFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>liudingkunFilter</filter-name>
+        <url-pattern>/lab2/validation.jsp</url-pattern>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
     </filter-mapping>
 </web-app>
