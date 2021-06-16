@@ -61,7 +61,7 @@ public class OrderDao implements IOrderDao {
 			flag = st.executeUpdate();
 			
 			//get newly inserted OrderId
-				String lastId="SELECT max(orderId) as orderId from [dbo].[order] ";//"SELECT max(orderid) as orderId from userdb.order"; for mysql
+				String lastId="SELECT max(OrderId) as OrderId from [dbo].[order] ";//"SELECT max(orderid) as orderId from userdb.order"; for mysql
 				ResultSet rs=con.createStatement().executeQuery(lastId);
 				rs.next();
 				int orderId=rs.getInt("orderId");

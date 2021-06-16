@@ -1,7 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.liudingkun.lab1.Person" %>
-<%@ page import="com.liudingkun.lab1.Dog" %><%--
+<%@ page import="com.lab1.Person" %>
+<%@ page import="com.lab1.Dog" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 5/15/2021
